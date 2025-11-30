@@ -5,7 +5,7 @@ def safe_divide(numerator, denominator):
     Safely divide two values with error handling.
 
     Returns:
-        str: Either an error message or 'Result: <value>'.
+        str: Error message or 'The result of the division is <value>'.
     """
     # Convert inputs to floats, handling non-numeric values
     try:
@@ -20,4 +20,5 @@ def safe_divide(numerator, denominator):
     except ZeroDivisionError:
         return "Error: Cannot divide by zero."
 
-    return f"Result: {result}"
+    # Use Python's default float representation to match checker output
+    return f"The result of the division is {result}"
