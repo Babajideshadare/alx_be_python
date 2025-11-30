@@ -7,16 +7,17 @@ def safe_divide(numerator, denominator):
     Returns:
         str: Either an error message or 'Result: <value>'.
     """
+    # Convert inputs to floats, handling non-numeric values
     try:
         num = float(numerator)
         den = float(denominator)
-    except (ValueError, TypeError):
-        return "Error: Please provide two numeric inputs."
+    except ValueError:
+        return "Error: Please enter numeric values only."
 
+    # Perform the division, handling division by zero
     try:
         result = num / den
     except ZeroDivisionError:
         return "Error: Cannot divide by zero."
 
-    # Format to 2 decimal places; adjust if your checker expects full precision
-    return f"Result: {result:.2f}"
+    return f"Result: {result}"

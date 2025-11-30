@@ -11,8 +11,8 @@ def main():
     numerator = sys.argv[1]
     denominator = sys.argv[2]
 
-    message = safe_divide(numerator, denominator)
-    print(message)
+    output = safe_divide(numerator, denominator)
+    print(output)
 
 if __name__ == "__main__":
     main()
