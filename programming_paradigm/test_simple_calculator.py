@@ -8,39 +8,27 @@ class TestSimpleCalculator(unittest.TestCase):
     def setUp(self):
         self.calc = SimpleCalculator()
 
-    # Addition
-    def test_add_integers(self):
+    def test_addition(self):
         self.assertEqual(self.calc.add(2, 3), 5)
-
-    def test_add_floats(self):
+        self.assertEqual(self.calc.add(-1, 1), 0)
         self.assertEqual(self.calc.add(1.5, 2.5), 4.0)
 
-    # Subtraction
-    def test_subtract_integers(self):
+    def test_subtraction(self):
         self.assertEqual(self.calc.subtract(10, 4), 6)
-
-    def test_subtract_negative_result(self):
         self.assertEqual(self.calc.subtract(4, 10), -6)
+        self.assertEqual(self.calc.subtract(5.5, 2.5), 3.0)
 
-    # Multiplication
-    def test_multiply_integers(self):
+    def test_multiply(self):
         self.assertEqual(self.calc.multiply(7, 6), 42)
-
-    def test_multiply_by_zero(self):
         self.assertEqual(self.calc.multiply(12345, 0), 0)
+        self.assertEqual(self.calc.multiply(-3, 5), -15)
 
-    # Division
-    def test_divide_normal(self):
+    def test_divide(self):
         self.assertEqual(self.calc.divide(7, 2), 3.5)
-
-    def test_divide_negative(self):
         self.assertEqual(self.calc.divide(-9, 3), -3.0)
-
-    def test_divide_zero_numerator(self):
         self.assertEqual(self.calc.divide(0, 5), 0.0)
 
-    def test_divide_by_zero_raises(self):
-        # Expect the standard ZeroDivisionError
+    def test_divide_by_zero(self):
         with self.assertRaises(ZeroDivisionError):
             self.calc.divide(10, 0)
 
